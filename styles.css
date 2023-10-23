@@ -185,7 +185,9 @@ footer {
     .navigation {
         flex-direction: column;
         gap: 10px;
-        margin-bottom: 20px; /* Add space between navigation and image */
+        margin-bottom: 50px; /* Add space between navigation and image */
+		margin-top: -160px; /* Moves the menu up */
+
     }
 
     .navigation a {
