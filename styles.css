@@ -157,7 +157,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* You can change the level of darkness by adjusting this value */
+    background-color: rgba(0, 0, 0, 0.5); /* You can change the level of darkness by adjusting this value */
     z-index: 1; /* Positioned above the image, but below the text */
 }
 
