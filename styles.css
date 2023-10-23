@@ -1,0 +1,259 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif; /* Ensure fallbacks are defined */
+}
+
+.full-screen {
+    height: 100vh;
+    background-color: #832e2d;
+    display: flex;
+    flex-direction: column; /* Change from row (default) to column */
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Center the content horizontally */
+
+}
+
+
+
+.centered-image {
+    max-width: 80%; 
+    max-height: 80%; 
+    margin-top: 20px; /* Add a margin to push the navigation a bit down */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 40px; 
+}
+
+.navigation a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s; 
+	white-space: nowrap; /* Prevents the text inside the anchor from breaking onto multiple lines */
+
+}
+
+.navigation a:hover {
+    color: white;
+}
+
+.section {
+    width: 100%;
+    min-height: 50vh; /* Ensures a minimum height */
+
+}
+
+.picture-section {
+    background-image: url('media/main_page/cropped_win.jpg');
+    background-size: cover;
+    background-position: center; /* Ensures the image stays centered */
+    background-repeat: no-repeat;
+    position: relative; /* Added for the ::before pseudo-element */
+    height: 130vh; /* Ensure the section takes up the entire viewport height */
+}
+
+
+
+.picture-text-group {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    z-index: 3; /* Higher than the overlay and the images */
+    color: white;
+    max-width: 50%;
+    text-align: left;
+}
+
+
+.terrible-monkeys {
+    font-size: 50px;
+    margin: 0; /* Remove browser default margins */
+}
+
+.team-name {
+    font-size: 30px;
+    font-style: italic; /* Make the text italic */
+    margin: 10px 0; /* Add some space between the texts */
+}
+
+.team-description {
+    font-size: 20px;
+    margin: 0; /* Remove browser default margins */
+}
+
+
+footer {
+    background-color: black; /* Existing color */
+    color: white; /* Make text color white */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 25px; 
+    padding-bottom: 20px; /* Space between navigation and the next element */
+}
+
+.footer-navigation a {
+    text-decoration: none;
+    color: white; /* White text color for the links */
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s; 
+    white-space: nowrap;
+}
+
+.footer-navigation a:hover {
+    color: #832e2d; /* Same hover color as the main navigation */
+}
+
+.support-text {
+    padding-bottom: 20px; /* If you need space between this text and the images */
+}
+
+.sponsors {
+    display: flex;
+    justify-content: center; /* Align items to the center */
+    gap: 50px; /* Larger gap between sponsor items */
+}
+
+.sponsor-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the image and text vertically */
+    text-align: center; /* Center the text horizontally */
+}
+
+.sponsor-item p {
+    margin: 10px 0 0 0; /* Space above the text, no space below, to the left, or to the right */
+}
+
+.sponsors img {
+    width: auto; 
+    height: 50px; /* Adjust the height as necessary, the width will adjust automatically */
+}
+
+
+
+#randomPictureContainer {
+    position: relative; /* Ensure this container is relative */
+    height: 130vh; /* This height matches the picture-section height you've set previously */
+}
+
+#randomPictureContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* You can change the level of darkness by adjusting this value */
+    z-index: 1; /* Positioned above the image, but below the text */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+    z-index: 0; /* Below the overlay */
+}
+
+
+.slide.active {
+    opacity: 1; /* Active state - visible */
+}
+
+
+
+/* Small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .navigation {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px; /* Add space between navigation and image */
+    }
+
+    .navigation a {
+        font-size: 18px; /* Smaller font size for navigation links */
+    }
+
+    .centered-image {
+        max-width: 95%; /* Larger image width */
+        margin-top: 20px; /* Remove top margin */
+    }
+
+	.picture-text-group {
+        left: 2%;
+        top: 25%;
+        max-width: 96%; /* Adjust for smaller devices */
+    }
+    .terrible-monkeys {
+        font-size: 30px; /* Adjust font size for better readability on small devices */
+    }
+    .team-name {
+        font-size: 22px; /* Adjust font size for better readability on small devices */
+    }
+    .team-description {
+        font-size: 16px; /* Adjust font size for better readability on small devices */
+    }
+
+    .section {
+        height: 100vh; /* Let the section height be determined by its content */
+    }
+	
+	.footer-navigation {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-navigation a {
+        font-size: 18px; /* Smaller font size for navigation links */
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+	
+	.picture-text-group {
+        left: 3%;
+        top: 25%;
+        max-width: 94%; /* Adjust for medium-sized devices */
+    }
+    .navigation {
+        gap: 15px; /* Adjust gap */
+    }
+
+    .navigation a {
+        font-size: 18px; /* Adjust font size */
+    }
+
+    .centered-image {
+        max-width: 90%; /* Adjust image width */
+    }
+
+    .section {
+        height: 100vh; /* Let the section height be determined by its content */
+    }
+}
+
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 769px) {
+    /* You can add adjustments for larger screens if necessary */
+}
