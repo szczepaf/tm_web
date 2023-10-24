@@ -3,7 +3,11 @@ body, html {
     padding: 0;
     height: 100%;
     font-family: 'Poppins', sans-serif; /* Ensure fallbacks are defined */
+	overflow-x: hidden; /* Prevent horizontal scroll */
+    scroll-behavior: smooth; /* Enable smooth scrolling */
 }
+
+
 
 .full-screen {
     height: 100vh;
@@ -13,8 +17,8 @@ body, html {
     align-items: center;
     justify-content: center;
     text-align: center; /* Center the content horizontally */
-
 }
+
 
 
 
@@ -97,25 +101,6 @@ footer {
     text-align: center;
 }
 
-.footer-navigation {
-    display: flex;
-    justify-content: center;
-    gap: 25px; 
-    padding-bottom: 20px; /* Space between navigation and the next element */
-}
-
-.footer-navigation a {
-    text-decoration: none;
-    color: white; /* White text color for the links */
-    font-weight: bold;
-    font-size: 20px;
-    transition: 0.3s; 
-    white-space: nowrap;
-}
-
-.footer-navigation a:hover {
-    color: #832e2d; /* Same hover color as the main navigation */
-}
 
 .support-text {
     padding-bottom: 20px; /* If you need space between this text and the images */
@@ -145,6 +130,37 @@ footer {
 
 
 
+#scrollTopButton {
+    position: fixed; 
+    bottom: 20px; 
+    right: 35px; 
+    z-index: 99; 
+    border: none; 
+    outline: none; 
+    background-color: #36454F;
+    cursor: pointer; 
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+#scrollTopButton:hover {
+    background-color: grey; /* A slightly darker shade for hover */
+}
+
+#scrollTopButton svg {
+    width: 20px; 
+    height: 20px;
+}
+
+#scrollTopButton path {
+    fill: white; /* Color of the arrow */
+}
+
+
 #randomPictureContainer {
     position: relative; /* Ensure this container is relative */
     height: 130vh; /* This height matches the picture-section height you've set previously */
@@ -159,6 +175,7 @@ footer {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* You can change the level of darkness by adjusting this value */
     z-index: 1; /* Positioned above the image, but below the text */
+	
 }
 
 .slide {
@@ -226,6 +243,7 @@ footer {
     .footer-navigation a {
         font-size: 18px; /* Smaller font size for navigation links */
     }
+    
 }
 
 /* Medium devices (tablets, 768px and up) */

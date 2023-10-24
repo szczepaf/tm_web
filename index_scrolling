@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 
     <title>Terrible Monkeys</title>
 	<link rel="shortcut icon" type="image/png" href="media/bily_favicon.png"/>
@@ -19,9 +17,6 @@
 			<a href="#">Kontakt</a>
 			<a href="#">O týmu</a>
 			<a href="#">Ultimate Frisbee</a>
-			<a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-			<a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-
 		</div>
 		<img src="media/main_page/cervenocerne.png" alt="Centered Image" class="centered-image">
 
@@ -62,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var currentIndex = 0;
     var container = document.getElementById('randomPictureContainer');
-    
+
     // Preload all images and append them to the DOM, but keep them hidden
     images.forEach(function(imagePath) {
         var img = document.createElement('img');
@@ -87,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add the 'active' class to the next image
         var nextImage = allImages[currentIndex];
         nextImage.classList.add('active');
-        
+
         // Move to the next index for the next call
         currentIndex++;
     }
@@ -95,31 +90,46 @@ document.addEventListener('DOMContentLoaded', function() {
     updateImage(); // Set the first image
     setInterval(updateImage, 5000); // Update the image every 5 seconds
 
+    let isScrolling;
 
-	var scrollTopButton = document.getElementById("scrollTopButton");
+    // Disable the default scroll behavior
+    window.addEventListener('wheel', function(event) {
+        event.preventDefault();
+    }, { passive: false }); // Set passive to false to be able to prevent default
 
-	// Show the button when the user scrolls down 20px from the top of the document
-	window.onscroll = function() {
-		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-			scrollTopButton.style.display = "block";
-		} else {
-			scrollTopButton.style.display = "none";
-		}
-	};
+    // Listen to the "wheel" event to detect scroll direction
+    window.addEventListener('wheel', function(event) {
+        // If currently not auto-scrolling
+        if(!isScrolling) {
+            // If scrolling down
+            if (event.deltaY > 0) {
+                isScrolling = true; 
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: 'smooth'
+                });
 
-	// Scroll to the top of the document when the user clicks the button
-	scrollTopButton.onclick = function() {
-		document.body.scrollTop = 0; // For Safari
-		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
-	};
+            } 
+            // If scrolling up
+            else if (event.deltaY < 0) {
+                isScrolling = true; 
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+
+            // Reset scrolling flag after animation duration
+            setTimeout(() => {
+                isScrolling = false;
+            }, 1000);  // Assuming smooth scroll duration is roughly 1 second
+        }
+    });
+
 });
 
-	</script>
 
+</script>
 
-<button id="scrollTopButton">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/>
-    </svg>
-</button>	</body>
+</body>
 </html>
