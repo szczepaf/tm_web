@@ -10,7 +10,7 @@ body, html {
 
 
 .full-screen {
-    height:100vh;
+    height:18vh;
     background-color: #832e2d;
     display: flex;
     flex-direction: column; /* Change from row (default) to column */
@@ -22,14 +22,9 @@ body, html {
 
 
 
-.centered-image {
-    max-width: 80%; 
-    max-height: 80%; 
-    margin-top: 20px; /* Add a margin to push the navigation a bit down */
-    height: auto; /* Maintain the aspect ratio */
-}
 
 .navigation {
+	align-items: center;
     display: flex;
     justify-content: center;
     gap: 40px; 
@@ -49,26 +44,20 @@ body, html {
     color: white;
 }
 
-.section {
-    width: 100%;
-    min-height: 50vh; /* Ensures a minimum height */
-
+#nav-logo {
+    height: 100%;
+    width: auto;
+    max-height: 15vh; /* This matches the height of the .full-screen class which is the container */
 }
 
-.picture-section {
-    background-image: url('media/main_page/cropped_win.jpg');
-    background-size: cover;
-    background-position: center; /* Ensures the image stays centered */
-    background-repeat: no-repeat;
-    position: relative; /* Added for the ::before pseudo-element */
-    height: 130vh; /* Ensure the section takes up the entire viewport height */
-}
+
+
 
 
 
 .picture-text-group {
     position: absolute;
-    top: 30%;
+    top: 15%;
     left: 5%;
     z-index: 3; /* Higher than the overlay and the images */
     color: white;
@@ -130,40 +119,9 @@ footer {
 
 
 
-#scrollTopButton {
-    position: fixed; 
-    bottom: 20px; 
-    right: 35px; 
-    z-index: 99; 
-    border: none; 
-    outline: none; 
-    background-color: #36454F;
-    cursor: pointer; 
-    width: 40px; 
-    height: 40px; 
-    border-radius: 50%; 
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-}
-
-#scrollTopButton:hover {
-    background-color: grey; /* A slightly darker shade for hover */
-}
-
-#scrollTopButton svg {
-    width: 20px; 
-    height: 20px;
-}
-
-#scrollTopButton path {
-    fill: white; /* Color of the arrow */
-}
-
-
 #randomPictureContainer {
     position: relative; /* Ensure this container is relative */
-    height: 130vh; /* This height matches the picture-section height you've set previously */
+    height: 100vh; /* This height matches the picture-section height you've set previously */
 }
 
 #randomPictureContainer::before {
@@ -173,7 +131,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* You can change the level of darkness by adjusting this value */
+    background-color: rgba(0, 0, 0, 0.6); /* You can change the level of darkness by adjusting this value */
     z-index: 1; /* Positioned above the image, but below the text */
 	
 }
@@ -199,7 +157,15 @@ footer {
 
 /* Small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+	
+    #nav-logo {
+        height: auto;
+        width: 80px; /* Adjust as needed; this assumes you'd want a fixed width on mobile */
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
     .navigation {
+		align-items: flex-start; /* In case you don't want them centered when stacked vertically on smaller screens */
         flex-direction: column;
         gap: 10px;
         margin-bottom: 50px; /* Add space between navigation and image */
@@ -209,11 +175,6 @@ footer {
 
     .navigation a {
         font-size: 18px; /* Smaller font size for navigation links */
-    }
-
-    .centered-image {
-        max-width: 95%; /* Larger image width */
-        margin-top: 20px; /* Remove top margin */
     }
 
 	.picture-text-group {
@@ -231,9 +192,6 @@ footer {
         font-size: 16px; /* Adjust font size for better readability on small devices */
     }
 
-    .section {
-        height: 100vh; /* Let the section height be determined by its content */
-    }
 	
 	.footer-navigation {
         flex-direction: column;
@@ -262,13 +220,9 @@ footer {
         font-size: 18px; /* Adjust font size */
     }
 
-    .centered-image {
-        max-width: 90%; /* Adjust image width */
-    }
 
-    .section {
-        height: 100vh; /* Let the section height be determined by its content */
-    }
+
+
 }
 
 
