@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesv3.css">
+	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <title>Terrible Monkeys</title>
+	<link rel="shortcut icon" type="image/png" href="media/bily_favicon.png"/>
+
+</head>
+<body>
+	<div class="full-screen">
+		<div class="navigation">
+		    <img src="media/main_page/cervene.png" alt="Logo" id="nav-logo">
+			<a href="#">Tréninky</a>
+			<a href="#">Kontakt</a>
+			<a href="#">O týmu</a>
+			<a href="#">Ultimate Frisbee</a>
+			<a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+			<a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+
+		</div>
+
+
+	</div>
+<div class="section picture-section" id="randomPictureContainer">
+    <!-- Images will be inserted here by JavaScript -->
+    <div class="picture-text-group">
+        <p class="terrible-monkeys">Terrible Monkeys</p>
+        <p class="team-name">Pražský Ultimate Frisbee tým</p>
+        <p class="team-description">Jsme vícenásobní mistři ČR s třicetiletou historií a zastoupením v ženské, mužské, smíšené i juniorské divizi. Hledáme spoluhráče a spoluhráčky, se kterými budeme dál růst.</p>
+    </div>
+</div>
+
+<footer>
+    <p class="support-text">Podporují nás:</p>
+    <div class="sponsors">
+        <div class="sponsor-item">
+            <img src="media/main_page/praha8.jpg" alt="Praha 8">
+            <p>Praha 8</p>
+        </div>
+        <div class="sponsor-item">
+            <img src="media/main_page/caufrisbee.jpg" alt="Čau Frisbee">
+            <p>ČAU Frisbee</p>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var images = [
+        'media/main_page/cropped_win.jpg',
+        //'media/main_page/mixed_win.jpg',
+        'media/main_page/women_medaile.jpg',
+        // add more image paths as needed...
+    ];
+
+    var currentIndex = 0;
+    var container = document.getElementById('randomPictureContainer');
+    
+    // Preload all images and append them to the DOM, but keep them hidden
+    images.forEach(function(imagePath) {
+        var img = document.createElement('img');
+        img.className = 'slide';
+        img.src = imagePath;
+        container.appendChild(img);
+    });
+
+    // Function to update the visible image
+    function updateImage() {
+        // Remove the 'active' class from all images
+        var allImages = container.querySelectorAll('.slide');
+        allImages.forEach(function(img) {
+            img.classList.remove('active');
+        });
+
+        // Get the next image index
+        if (currentIndex >= images.length) {
+            currentIndex = 0;
+        }
+
+        // Add the 'active' class to the next image
+        var nextImage = allImages[currentIndex];
+        nextImage.classList.add('active');
+        
+        // Move to the next index for the next call
+        currentIndex++;
+    }
+
+    updateImage(); // Set the first image
+    setInterval(updateImage, 5000); // Update the image every 5 seconds
+});
+
+	</script>
+
+</body>
+</html>

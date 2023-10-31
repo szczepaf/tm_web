@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesT5.css">
+	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <title>Tréninky</title>
+	<link rel="shortcut icon" type="image/png" href="media/bily_favicon.png"/>
+
+</head>
+<body>
+	<div class="top-bar">
+		<div class="navigation">
+			<a href="./index_v5.html"><img src="media/main_page/cervene.png" alt="Logo" id="nav-logo"></a>
+			<a href="./treninky.html">Tréninky</a>
+			<a href="#">Kontakt</a>
+			<a href="#">O týmu</a>
+			<a href="#">Ultimate Frisbee</a>
+			<a href="https://www.instagram.com/terrible.monkeys" class="social-icon"><i class="fab fa-instagram"></i></a>
+			<a href="https://www.facebook.com/terriblemonkeys" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+
+		</div>
+
+
+	</div>
+<div class="section picture-section" id="randomPictureContainer">
+    <!-- Images will be inserted here by JavaScript -->
+    <div class="picture-text-group">
+        <p class="practices">Tréninky</p>
+    </div>
+</div>
+<div class="practices-text">
+<p>Trénujeme dvakrát až třikrát týdně po celý rok, přes zimu alespoň jednou týdně v hale.
+Na první trénink je možné přijít zcela nezávazně a i bez větších zkušeností s Ultimate (ideálně po domluvě přes e-mail nebo instagram).
+Nováčkům vše rádi ukážeme a pomůžeme se rozkoukat, důležitá je chuť se zlepšovat, radost ze hry a týmovost, nevadí, že neumíte perfektně házet nebo chytat.</p>
+
+<p>S sebou je vhodné si vzít:
+	<ul>
+	  <li>sportovní obuv - kopačky (nebo turfy) ven, sálovky dovnitř</li>
+	  <li>tmavé a světlé triko</li>
+	  <li>lahev s vodou</li>
+	</ul></p>
+
+?MANUÁL PRO NOVÁČKY?</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var images = [
+        'media/treninky/dzakuz.jpg',
+		'media/treninky/anka.jpg',
+		'media/treninky/cego_full.jpg',
+		'media/treninky/misa.jpg',
+
+        // add more image paths as needed...
+    ];
+
+    var currentIndex = 0;
+    var container = document.getElementById('randomPictureContainer');
+    
+    // Preload all images and append them to the DOM, but keep them hidden
+    images.forEach(function(imagePath) {
+        var img = document.createElement('img');
+        img.className = 'slide';
+        img.src = imagePath;
+        container.appendChild(img);
+    });
+
+    // Function to update the visible image
+    function updateImage() {
+        // Remove the 'active' class from all images
+        var allImages = container.querySelectorAll('.slide');
+        allImages.forEach(function(img) {
+            img.classList.remove('active');
+        });
+
+        // Get the next image index
+        if (currentIndex >= images.length) {
+            currentIndex = 0;
+        }
+
+        // Add the 'active' class to the next image
+        var nextImage = allImages[currentIndex];
+        nextImage.classList.add('active');
+        
+        // Move to the next index for the next call
+        currentIndex++;
+    }
+
+    updateImage(); // Set the first image
+    setInterval(updateImage, 5000); // Update the image every 5 seconds
+});
+
+	</script>
+
+</body>
+</html>
