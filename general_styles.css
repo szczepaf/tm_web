@@ -86,50 +86,10 @@ footer {
 }
 
 
-.terrible-monkeys {
-    font-size: 50px;
-    margin: 0;
-}
-
-.team-name {
-    font-size: 30px;
-    font-style: italic; 
-    margin: 10px 0;
-}
-
-.team-description {
-    font-size: 20px;
-    margin: 0; 
-}
 
 .support-text {
     padding-bottom: 20px;
 }
-
-.sponsors {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.sponsor-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    text-align: center; 
-}
-
-.sponsor-item p {
-    margin: 10px 0 0 0; 
-}
-
-.sponsors img {
-    width: auto; 
-    height: 50px;
-}
-
 
 #navigation-logo {
     height: 100%;
@@ -196,14 +156,6 @@ footer {
         font-size: 22px; /* Adjust font size for mobile */
     }
 	
-    .sponsors {
-        align-items: center;
-		
-    }
-    
-    .sponsor-item img {
-        height: 30px;
-    }
 
 	.picture-text-group {
         left: 2%;
@@ -212,15 +164,7 @@ footer {
 		padding-left: 10px;
 		padding-right: 10px;
     }
-    .terrible-monkeys {
-        font-size: 30px; 
-    }
-    .team-name {
-        font-size: 22px;
-    }
-    .team-description {
-        font-size: 16px; 
-    }
+
     .top-bar {
         display: flex;
         flex-direction: row;

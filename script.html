@@ -1,0 +1,61 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var images = [
+        'media/main_page/cropped_win2.jpg',
+        'media/main_page/mixed_win.jpg',
+        'media/main_page/women_medaile.jpg',
+        // add more image paths as needed...
+    ];
+
+    var currentIndex = 0;
+    var container = document.getElementById('randomPictureContainer');
+    
+    // Preload all images and append them to the DOM, but keep them hidden
+    images.forEach(function(imagePath) {
+        var img = document.createElement('img');
+        img.className = 'slide';
+        img.src = imagePath;
+        container.appendChild(img);
+    });
+
+    // Function to update the visible image
+    function updateImage() {
+        // Remove the 'active' class from all images
+        var allImages = container.querySelectorAll('.slide');
+        allImages.forEach(function(img) {
+            img.classList.remove('active');
+        });
+
+        // Get the next image index
+        if (currentIndex >= images.length) {
+            currentIndex = 0;
+        }
+
+        // Add the 'active' class to the next image
+        var nextImage = allImages[currentIndex];
+        nextImage.classList.add('active');
+        
+        // Move to the next index for the next call
+        currentIndex++;
+    }
+
+    updateImage(); // Set the first image
+    setInterval(updateImage, 5000); // Update the image every 5 seconds
+	
+    var hamburger = document.querySelector('.hamburger-menu');
+    var navigation = document.querySelector('.navigation');
+
+	hamburger.addEventListener('click', function() {
+		if (navigation.style.right === '0px') {
+			navigation.style.right = '-100%'; // Hide the menu
+		} else {
+			navigation.style.right = '0px'; // Show the menu
+			}
+		});
+
+});
+
+//scp index_* stylesv* szczepaf@u-pl1.ms.mff.cuni.cz:WWW/
+
+
+	</script>

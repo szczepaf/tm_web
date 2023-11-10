@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="stylesT5.css">
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 
 
     <title>Tréninky</title>
@@ -14,9 +16,16 @@
 </head>
 <body>
 	<div class="top-bar">
+	    <a href="./index_v5.html"><img src="media/main_page/cervene.png" alt="Logo" id="top-bar-logo"></a>
+
+	    <div class="hamburger-menu">
+			<i class="fas fa-bars"></i> <!-- Font Awesome hamburger icon -->
+		</div>
+
 		<div class="navigation">
-			<a href="./index_v5.html"><img src="media/main_page/cervene.png" alt="Logo" id="nav-logo"></a>
-			<a href="./treninky.html">Tréninky</a>
+		    <a href="./index_v5.html"><img src="media/main_page/cervene.png" alt="Logo" id="navigation-logo"></a>
+
+			<a href="#">Tréninky</a>
 			<a href="#">Kontakt</a>
 			<a href="#">O týmu</a>
 			<a href="#">Ultimate Frisbee</a>
@@ -45,7 +54,7 @@ Nováčkům vše rádi ukážeme a pomůžeme se rozkoukat, důležitá je chuť
 	  <li>lahev s vodou</li>
 	</ul></p>
 
-?MANUÁL PRO NOVÁČKY?</div>
+?MANUÁL PRO NOVÁČKY? + AKTUALNI TRENINKY Z TYMU</div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var images = [
@@ -53,8 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		'media/treninky/cego_full.jpg',
 		'media/treninky/misa.jpg',
 		'media/treninky/dzakuz.jpg',
-
-
         // add more image paths as needed...
     ];
 
@@ -92,7 +99,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateImage(); // Set the first image
     setInterval(updateImage, 5000); // Update the image every 5 seconds
+	
+    var hamburger = document.querySelector('.hamburger-menu');
+    var navigation = document.querySelector('.navigation');
+
+	hamburger.addEventListener('click', function() {
+		if (navigation.style.right === '0px') {
+			navigation.style.right = '-100%'; // Hide the menu
+		} else {
+			navigation.style.right = '0px'; // Show the menu
+			}
+		});
+
 });
+
+//scp index_* stylesv* szczepaf@u-pl1.ms.mff.cuni.cz:WWW/
+
 
 	</script>
 
