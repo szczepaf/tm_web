@@ -46,12 +46,6 @@ body, html {
     color: black;
 }
 
-#nav-logo {
-    height: 100%;
-    width: auto;
-    max-height: 15vh; /* This matches the height of the .top-bar class which is the container */
-}
-
 #nav-logo-mobile {
     height: 100%;
     width: auto;
@@ -176,42 +170,41 @@ footer {
 @media only screen and (max-width: 600px) {
 	
     #nav-logo {
-        height: auto;
-        width: 100px; /* Adjust logo size */
-		z-index: 6;
-		margin-right: 0vh;
-		order: 3
+        order: 1; /* Position logo on the left */
+        width: 15vh; /* Adjust logo size */
+		height: auto;
+        z-index: 11;
+		margin-left: 20px;
+
+
     }
+    /* Navigation menu styling */
     .navigation {
+        /* Full width navigation with fixed positioning */
         position: fixed;
+        top: 0;
         right: -100%; /* Start off-screen */
         height: 100%;
+        width: 100%; /* Set to full width */
         background-color: white;
         flex-direction: column;
-        align-items: flex-start;
         transition: right 0.3s ease;
-		z-index: 3;
-		padding-left: 10%; /* Add padding to move options away from the left border */
-		width: 90%; /* Set to full width */
-
-
+        z-index: 3;
     }
 	
 	
 	
-    /* Show hamburger icon only on mobile */
+    /* Adjust hamburger menu styles */
     .hamburger-menu {
+        order: 2; /* Position hamburger menu on the right */
         display: block;
         position: absolute;
-        top: 20px; /* Adjust as needed */
-        left: 20px; /* Adjust as needed */
-		z-index: 10;
-        order: 2; /* Position hamburger menu on the left */
-
+        top: 45px;
+        right: 30px; /* Adjust to place on the right */
+        z-index: 10;
     }
-
     .navigation a {
-        font-size: 18px; /* Smaller font size for navigation links */
+        font-size: 22px; /* Adjust font size for mobile */
     }
 
 	.picture-text-group {
@@ -228,12 +221,14 @@ footer {
     .team-description {
         font-size: 16px; /* Adjust font size for better readability on small devices */
     }
-	
-     .top-bar {
-        justify-content: space-between; /* Space between elements */
+    .top-bar {
+        /* Ensure the .top-bar is using flexbox layout */
+        display: flex;
+        flex-direction: row; /* Aligns items in a row */
+        justify-content: space-between; /* Positions the logo and menu on opposite ends */
         align-items: center; /* Align items vertically */
-        max-height: 10vh;
         padding: 10px; /* Add some padding */
+        height: 12vh; /* Adjust height as needed */
     }
 	
 	#nav-logo-mobile {
@@ -241,7 +236,7 @@ footer {
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media only screen and (min-width: 601px) and (max-width: 768px) {
+@media only screen and (min-width: 601px) and (max-width: 769px) {
 	
 	.picture-text-group {
         left: 3%;
@@ -255,6 +250,19 @@ footer {
     .navigation a {
         font-size: 18px; /* Adjust font size */
     }
+	
+	#nav-logo {
+		height: 10%;
+		width: auto;
+		max-height: 1vh; /* This matches the height of the .top-bar class which is the container */
+	}
+
+	#nav-logo-mobile {
+		height: 10%;
+		width: auto;
+		max-height: 1vh; /* This matches the height of the .top-bar class which is the container */
+
+	}
 
 
 
@@ -266,4 +274,8 @@ footer {
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 769px) {
     /* You can add adjustments for larger screens if necessary */
+	#nav-logo {
+	display: none;
+}
+	
 }
