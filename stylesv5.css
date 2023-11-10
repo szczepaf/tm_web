@@ -10,13 +10,15 @@ body, html {
 
 
 .top-bar {
+	display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Aligns items to the start of the container */
+	
     height:18vh;
     background-color: white;
-    display: flex;
     flex-direction: column; /* Change from row (default) to column */
-    align-items: center;
-    justify-content: center;
     text-align: center; /* Center the content horizontally */
+
 }
 
 
@@ -50,6 +52,13 @@ body, html {
     max-height: 15vh; /* This matches the height of the .top-bar class which is the container */
 }
 
+#nav-logo-mobile {
+    height: 100%;
+    width: auto;
+    max-height: 15vh; /* This matches the height of the .top-bar class which is the container */
+
+}
+
 
 
 
@@ -59,7 +68,7 @@ body, html {
     position: absolute;
     top: 15%;
     left: 5%;
-    z-index: 3; /* Higher than the overlay and the images */
+    z-index: 2; /* Higher than the overlay and the images */
     color: white;
     max-width: 50%;
     text-align: left;
@@ -155,22 +164,49 @@ footer {
 }
 
 
+/* Hamburger menu styles */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+	
+}
+
 
 /* Small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 	
     #nav-logo {
         height: auto;
-        width: 80px; /* Adjust as needed; this assumes you'd want a fixed width on mobile */
-        margin-right: 0;
-        margin-bottom: 10px;
+        width: 100px; /* Adjust logo size */
+		z-index: 6;
+		margin-right: 0vh;
+		order: 3
     }
     .navigation {
-		align-items: flex-start; /* In case you don't want them centered when stacked vertically on smaller screens */
+        position: fixed;
+        right: -100%; /* Start off-screen */
+        height: 100%;
+        background-color: white;
         flex-direction: column;
-        gap: 10px;
-        margin-bottom: 50px; /* Add space between navigation and image */
-		margin-top: -160px; /* Moves the menu up */
+        align-items: flex-start;
+        transition: right 0.3s ease;
+		z-index: 3;
+		padding-left: 10%; /* Add padding to move options away from the left border */
+		width: 90%; /* Set to full width */
+
+
+    }
+	
+	
+	
+    /* Show hamburger icon only on mobile */
+    .hamburger-menu {
+        display: block;
+        position: absolute;
+        top: 20px; /* Adjust as needed */
+        left: 20px; /* Adjust as needed */
+		z-index: 10;
+        order: 2; /* Position hamburger menu on the left */
 
     }
 
@@ -192,7 +228,16 @@ footer {
     .team-description {
         font-size: 16px; /* Adjust font size for better readability on small devices */
     }
-    
+	
+     .top-bar {
+        justify-content: space-between; /* Space between elements */
+        align-items: center; /* Align items vertically */
+        max-height: 10vh;
+        padding: 10px; /* Add some padding */
+    }
+	
+	#nav-logo-mobile {
+		display: none;
 }
 
 /* Medium devices (tablets, 768px and up) */
