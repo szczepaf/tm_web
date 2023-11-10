@@ -150,6 +150,7 @@ footer {
     transition: opacity 1s ease-in-out;
     opacity: 0;
     z-index: 0; /* Below the overlay */
+	position: absolute;
 }
 
 
@@ -178,13 +179,15 @@ footer {
 
 
     }
+
+	
     /* Navigation menu styling */
     .navigation {
         /* Full width navigation with fixed positioning */
         position: fixed;
-        top: 0;
+        top: -20%;
         right: -100%; /* Start off-screen */
-        height: 100%;
+        height: 120%;
         width: 100%; /* Set to full width */
         background-color: white;
         flex-direction: column;
@@ -211,6 +214,8 @@ footer {
         left: 2%;
         top: 25%;
         max-width: 96%; /* Adjust for smaller devices */
+		padding-left: 10px;
+		padding-right: 10px;
     }
     .terrible-monkeys {
         font-size: 30px; /* Adjust font size for better readability on small devices */
@@ -233,10 +238,19 @@ footer {
 	
 	#nav-logo-mobile {
 		display: none;
+	}
+	
+	#randomPictureContainer {
+    position: relative; /* Ensure this container is relative */
+    height: 80%; /* This height matches the picture-section height you've set previously */
+	zoom: 80%;
+	
+	}
+
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media only screen and (min-width: 601px) and (max-width: 769px) {
+@media only screen and (min-width: 601px) and (max-width: 834px) {
 	
 	.picture-text-group {
         left: 3%;
@@ -252,15 +266,14 @@ footer {
     }
 	
 	#nav-logo {
-		height: 10%;
+		height: 13vh;
 		width: auto;
-		max-height: 1vh; /* This matches the height of the .top-bar class which is the container */
 	}
 
 	#nav-logo-mobile {
-		height: 10%;
+		height: 13vh;
 		width: auto;
-		max-height: 1vh; /* This matches the height of the .top-bar class which is the container */
+		/*max-height: 1vh; /* This matches the height of the .top-bar class which is the container */
 
 	}
 
