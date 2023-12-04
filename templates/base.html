@@ -1,34 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesT5.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesv5.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_contacts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesT5.css') }}">
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-
-
-    <title>Tréninky</title>
-	<link rel="shortcut icon" type="image/png" href="media/bily_favicon.png"/>
+    <title>Terrible Monkeys</title>
+	<link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='media/bily_favicon.png') }}"/>
 
 </head>
 <body>
 	<div class="top-bar">
-	    <a href="./index_v5.html"><img src="media/main_page/cervene.png" alt="Logo" id="top-bar-logo"></a>
+	    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='media/main_page/cervene.png') }}" alt="Logo" id="top-bar-logo"></a>
 
 	    <div class="hamburger-menu">
 			<i class="fas fa-bars"></i> <!-- Font Awesome hamburger icon -->
 		</div>
 
 		<div class="navigation">
-		    <a href="./index_v5.html"><img src="media/main_page/cervene.png" alt="Logo" id="navigation-logo"></a>
-
-			<a href="./treninky.html">Tréninky</a>
-			<a href="./kontakt.html">Kontakt</a>
-			<a href="./tym.html">O týmu</a>
-			<a href="./ultimate_frisbee.html">Ultimate Frisbee</a>
+		    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='media/main_page/cervene.png') }}" alt="Logo" id="navigation-logo"></a>
+			<a href="{{ url_for('practices') }}">Tréninky</a>
+			<a href="{{ url_for('contacts') }}">Kontakt</a>
+			<a href="{{ url_for('team') }}">O týmu</a>
+			<a href="{{ url_for('ultimate') }}">Ultimate Frisbee</a>
 			<a href="https://www.instagram.com/terrible.monkeys" class="social-icon"><i class="fab fa-instagram"></i></a>
 			<a href="https://www.facebook.com/terriblemonkeys" class="social-icon"><i class="fab fa-facebook-f"></i></a>
 
@@ -36,36 +35,35 @@
 
 
 	</div>
-<div class="section picture-section" id="randomPictureContainer">
-    <!-- Images will be inserted here by JavaScript -->
-    <div class="picture-text-group">
-        <p class="practices">Tréninky</p>
+{% block main %}
+{% endblock %}
+
+<footer>
+    <p class="support-text">Podporují nás:</p>
+    <div class="sponsors">
+        <div class="sponsor-item">
+            <img src="{{ url_for('static', filename='media/main_page/praha8.jpg') }}" alt="Praha 8">
+            <p>Praha 8</p>
+        </div>
+        <div class="sponsor-item">
+            <img src="{{ url_for('static', filename='media/main_page/caufrisbee.jpg') }}" alt="ČAU Frisbee">
+            <p>ČAU Frisbee</p>
+        </div>
+        <!-- Add your new sponsor here -->
+        <div class="sponsor-item">
+            <img src="{{ url_for('static', filename='media/main_page/ultimo.jpg') }}" alt="Ultimo">
+            <p>Ultimo</p>
+        </div>
     </div>
-</div>
+</footer>
 
 
-<div class="practices-text">
-	<p>Trénujeme dvakrát až třikrát týdně po celý rok, přes zimu alespoň jednou týdně v hale.
-	Na první trénink je možné přijít zcela nezávazně a i bez větších zkušeností s Ultimate (klidně nám o sobě můžeš napsat na e-mail nebo instagram).
-	Nováčkům vše rádi ukážeme a pomůžeme se rozkoukat, důležitá je chuť se zlepšovat, radost ze hry a týmovost, nevadí, že neumíte perfektně házet nebo chytat.</p>
-
-	<p>S sebou je vhodné si vzít:
-		<ul>
-		  <li>sportovní obuv - kopačky (nebo turfy) ven, sálovky dovnitř</li>
-		  <li>tmavé a světlé triko</li>
-		  <li>lahev s vodou</li>
-		</ul>
-	</p>
-
-	?MANUÁL PRO NOVÁČKY? + AKTUALNI TRENINKY Z TYMU
-</div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var images = [
-		'media/treninky/anka.jpg',
-		'media/treninky/cego_full.jpg',
-		'media/treninky/misa.jpg',
-		'media/treninky/dzakuz.jpg',
+        "{{ url_for('static', filename='media/main_page/cropped_win2.jpg') }}",
+        "{{ url_for('static', filename='media/main_page/mixed_win.jpg') }}",
+        "{{ url_for('static', filename='media/main_page/women_medaile.jpg') }}",
         // add more image paths as needed...
     ];
 
@@ -120,7 +118,8 @@ document.addEventListener('DOMContentLoaded', function() {
 //scp index_* stylesv* szczepaf@u-pl1.ms.mff.cuni.cz:WWW/
 
 
-	</script>
+</script>
 
 </body>
 </html>
+

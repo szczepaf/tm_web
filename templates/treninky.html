@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<div class="section picture-section" id="randomPictureContainer">
+    <!-- Images will be inserted here by JavaScript -->
+    <div class="picture-text-group">
+        <p class="practices">Tréninky</p>
+    </div>
+</div>
+
+
+<div class="practices-text">
+	<p>Trénujeme dvakrát až třikrát týdně po celý rok, přes zimu alespoň jednou týdně v hale.
+	Na první trénink je možné přijít zcela nezávazně a i bez větších zkušeností s Ultimate (klidně nám o sobě můžeš napsat na e-mail nebo instagram).
+	Nováčkům vše rádi ukážeme a pomůžeme se rozkoukat, důležitá je chuť se zlepšovat, radost ze hry a týmovost, nevadí, že neumíte perfektně házet nebo chytat.</p>
+
+	<p>S sebou je vhodné si vzít:
+		<ul>
+		  <li>sportovní obuv - kopačky (nebo turfy) ven, sálovky dovnitř</li>
+		  <li>tmavé a světlé triko</li>
+		  <li>lahev s vodou</li>
+		</ul>
+	</p>
+	<div class="upcoming-practices">
+		<h2>Nadcházející tréninky</h2>
+		{% if practices %}
+			{% for practice in practices %}
+			<div class="practice-block">
+				<h4>{{ practice.name }}</h4>
+				<ul>
+					<li>{{ practice.get_date() }} {{ practice.get_start() }} - {{ practice.get_end() }}</li>
+					<li>místo: {{ practice.location }} (<a href="{{ practice.link }}">mapa</a>)</li>
+				</ul>
+			</div>
+			{% endfor %}
+		{% else %}
+			<h4>Momentálně nejsou vypsané žádné tréninky.</h4>
+		{% endif %}
+	</div>
+</div>
+
+{% endblock %}
