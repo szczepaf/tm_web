@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-1    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='stylesT5.css') }}"> -->
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -22,7 +21,7 @@
 		</div>
 
 		<div class="navigation">
-		    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='media/main_page/cervene.png') }}" alt="Logo" id="navigation-logo"></a>
+		    <a href="{{ url_for('index') }}" id="home-link"><img src="{{ url_for('static', filename='media/main_page/cervene.png') }}" alt="Logo" id="navigation-logo"></a>
 			<a href="{{ url_for('practices') }}">Tréninky</a>
 			<a href="{{ url_for('team') }}">O týmu</a>
 			<a href="{{ url_for('ultimate') }}">Ultimate Frisbee</a>
