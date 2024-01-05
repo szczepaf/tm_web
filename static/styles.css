@@ -2,34 +2,33 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Poppins', sans-serif; /* Ensure fallbacks are defined */
-	overflow-x: hidden; /* Prevent horizontal scroll */
-    scroll-behavior: smooth; /* Enable smooth scrolling */
+    font-family: 'Poppins', sans-serif; 
+	overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 
+footer {
+    background-color: white;
+    color: #832e2d; 
+    padding: 20px 0;
+	font-weight: bold;
+    text-align: center;
 
-.full-screen {
-    height:100vh;
-    background-color: #832e2d;
-    display: flex;
-    flex-direction: column; /* Change from row (default) to column */
+}
+
+.top-bar {
+	display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center; /* Center the content horizontally */
-}
-
-
-
-
-.centered-image {
-    max-width: 80%; 
-    max-height: 80%; 
-    margin-top: 20px; /* Add a margin to push the navigation a bit down */
-    height: auto; /* Maintain the aspect ratio */
+    justify-content: flex-end;
+    height:50px;
+    background-color: white;
+    flex-direction: column;
+    text-align: center;
 }
 
 .navigation {
+	align-items: center;
     display: flex;
     justify-content: center;
     gap: 40px; 
@@ -37,146 +36,34 @@ body, html {
 
 .navigation a {
     text-decoration: none;
-    color: black;
+    color: #832e2d;
     font-weight: bold;
     font-size: 20px;
     transition: 0.3s; 
-	white-space: nowrap; /* Prevents the text inside the anchor from breaking onto multiple lines */
-
+	white-space: nowrap;
 }
 
 .navigation a:hover {
-    color: white;
+    color: black;
 }
 
-.section {
-    width: 100%;
-    min-height: 50vh; /* Ensures a minimum height */
-
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+	
 }
-
-.picture-section {
-    background-image: url('media/main_page/cropped_win.jpg');
-    background-size: cover;
-    background-position: center; /* Ensures the image stays centered */
-    background-repeat: no-repeat;
-    position: relative; /* Added for the ::before pseudo-element */
-    height: 130vh; /* Ensure the section takes up the entire viewport height */
-}
-
-
 
 .picture-text-group {
     position: absolute;
-    top: 30%;
+    top: 15%;
     left: 5%;
-    z-index: 3; /* Higher than the overlay and the images */
+    z-index: 2; 
     color: white;
     max-width: 50%;
     text-align: left;
 }
 
 
-.terrible-monkeys {
-    font-size: 50px;
-    margin: 0; /* Remove browser default margins */
-}
-
-.team-name {
-    font-size: 30px;
-    font-style: italic; /* Make the text italic */
-    margin: 10px 0; /* Add some space between the texts */
-}
-
-.team-description {
-    font-size: 20px;
-    margin: 0; /* Remove browser default margins */
-}
-
-
-footer {
-    background-color: black; /* Existing color */
-    color: white; /* Make text color white */
-    padding: 20px 0;
-    text-align: center;
-}
-
-
-.support-text {
-    padding-bottom: 20px; /* If you need space between this text and the images */
-}
-
-.sponsors {
-    display: flex;
-    justify-content: center; /* Align items to the center */
-    gap: 50px; /* Larger gap between sponsor items */
-}
-
-.sponsor-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the image and text vertically */
-    text-align: center; /* Center the text horizontally */
-}
-
-.sponsor-item p {
-    margin: 10px 0 0 0; /* Space above the text, no space below, to the left, or to the right */
-}
-
-.sponsors img {
-    width: auto; 
-    height: 50px; /* Adjust the height as necessary, the width will adjust automatically */
-}
-
-
-
-#scrollTopButton {
-    position: fixed; 
-    bottom: 20px; 
-    right: 35px; 
-    z-index: 99; 
-    border: none; 
-    outline: none; 
-    background-color: #36454F;
-    cursor: pointer; 
-    width: 40px; 
-    height: 40px; 
-    border-radius: 50%; 
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-}
-
-#scrollTopButton:hover {
-    background-color: grey; /* A slightly darker shade for hover */
-}
-
-#scrollTopButton svg {
-    width: 20px; 
-    height: 20px;
-}
-
-#scrollTopButton path {
-    fill: white; /* Color of the arrow */
-}
-
-
-#randomPictureContainer {
-    position: relative; /* Ensure this container is relative */
-    height: 130vh; /* This height matches the picture-section height you've set previously */
-}
-
-#randomPictureContainer::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* You can change the level of darkness by adjusting this value */
-    z-index: 1; /* Positioned above the image, but below the text */
-	
-}
 
 .slide {
     position: absolute;
@@ -187,7 +74,8 @@ footer {
     object-fit: cover;
     transition: opacity 1s ease-in-out;
     opacity: 0;
-    z-index: 0; /* Below the overlay */
+    z-index: 0; 
+	position: absolute;
 }
 
 
@@ -196,84 +84,235 @@ footer {
 }
 
 
+.terrible-monkeys {
+    font-size: 50px;
+    margin: 0;
+}
+
+.team-name {
+    font-size: 30px;
+    font-style: italic; 
+    margin: 10px 0;
+}
+
+.team-description {
+    font-size: 20px;
+    margin: 0; 
+}
+
+.support-text {
+    padding-bottom: 20px;
+}
+
+.sponsors {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.sponsor-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center; 
+}
+
+.sponsor-item p {
+    margin: 10px 0 0 0; 
+}
+
+.sponsors img {
+    width: auto; 
+    height: 50px;
+}
+
+
+#navigation-logo {
+    height: 100%;
+    width: auto;
+    max-height: 15vh;
+
+}
+
+#randomPictureContainer {
+    position: relative;
+    height: 100vh;
+}
+
+#randomPictureContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.practices {
+    font-size: 70px;
+}
+
+.practices-text {
+    background-color: white;
+    color: #832e2d;
+    /* This matches the color of the navigation links */
+    font-size: 18px;
+    /* This makes the text a bit larger, adjust the value as needed */
+    padding: 100px;
+    /* This adds padding around the text */
+    line-height: 1.6;
+    /* This increases the space between lines/paragraphs, adjust the value as needed */
+}
+
+.contactsh1 {
+	font-size: 70px;
+}
+
+.contacts-text {
+	background-color: white;
+    color: #832e2d; /* This matches the color of the navigation links */
+    font-size: 18px; /* This makes the text a bit larger, adjust the value as needed */
+    padding: 100px; /* This adds padding around the text */
+    line-height: 1.6; /* This increases the space between lines/paragraphs, adjust the value as needed */
+}
+
+.contacts-text a{
+	color: #832e2d;
+	/*8text-decoration: none;*/
+
+}
+
+.contacts-text a:hover{
+	color: black;
+	
+}
 
 /* Small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+	
+    #top-bar-logo {
+        order: 1; /* Position logo on the left */
+        /* width: 15vh;  */
+		height: auto;
+        z-index: 11;
+		margin-left: 20px;
+    }
+
+
     .navigation {
+        position: fixed;
+        top: -20%;
+        right: -100%; /* Start off-screen */
+        height: 120%;
+        width: 100%; /* Set to full width */
+        background-color: white;
         flex-direction: column;
-        gap: 10px;
-        margin-bottom: 50px; /* Add space between navigation and image */
-		margin-top: -160px; /* Moves the menu up */
-
+        transition: right 0.3s ease;
+        z-index: 3;
     }
-
+	
+	
+	
+    /* Adjust hamburger menu styles */
+    .hamburger-menu {
+        order: 2; /* Position hamburger menu on the right */
+        display: block;
+        position: absolute;
+        top: 45px;
+        right: 30px; /* Adjust to place on the right */
+        z-index: 10;
+    }
     .navigation a {
-        font-size: 18px; /* Smaller font size for navigation links */
+        font-size: 22px; /* Adjust font size for mobile */
     }
-
-    .centered-image {
-        max-width: 95%; /* Larger image width */
-        margin-top: 20px; /* Remove top margin */
+	
+    .sponsors {
+        align-items: center;
+		
+    }
+    
+    .sponsor-item img {
+        height: 30px;
     }
 
 	.picture-text-group {
         left: 2%;
         top: 25%;
         max-width: 96%; /* Adjust for smaller devices */
+		padding-left: 10px;
+		padding-right: 10px;
     }
     .terrible-monkeys {
-        font-size: 30px; /* Adjust font size for better readability on small devices */
+        font-size: 30px; 
     }
     .team-name {
-        font-size: 22px; /* Adjust font size for better readability on small devices */
+        font-size: 22px;
     }
     .team-description {
-        font-size: 16px; /* Adjust font size for better readability on small devices */
+        font-size: 16px; 
     }
-
-    .section {
-        height: 100vh; /* Let the section height be determined by its content */
+    .top-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        height: 50px;
     }
 	
-	.footer-navigation {
-        flex-direction: column;
-        gap: 10px;
-    }
+	#navigation-logo {
+		display: none;
+	}
+	
+	#randomPictureContainer {
+    position: relative;
+    height: 80%;
+	zoom: 80%;
+	
+	}
 
-    .footer-navigation a {
-        font-size: 18px; /* Smaller font size for navigation links */
-    }
-    
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media only screen and (min-width: 601px) and (max-width: 768px) {
+@media only screen and (min-width: 601px) and (max-width: 834px) {
 	
 	.picture-text-group {
         left: 3%;
         top: 25%;
-        max-width: 94%; /* Adjust for medium-sized devices */
+        max-width: 94%; 
     }
     .navigation {
-        gap: 15px; /* Adjust gap */
+        gap: 15px; 
     }
 
     .navigation a {
-        font-size: 18px; /* Adjust font size */
+        font-size: 18px;
     }
+	
+	#top-bar-logo {
+		/* height: 13vh; */
+		width: auto;
+	}
 
-    .centered-image {
-        max-width: 90%; /* Adjust image width */
-    }
+	#navigation-logo {
+		height: 13vh;
+		width: auto;
 
-    .section {
-        height: 100vh; /* Let the section height be determined by its content */
-    }
+	}
 }
-
-
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 769px) {
     /* You can add adjustments for larger screens if necessary */
+	#top-bar-logo {
+	display: none;
+	}
+	   .sponsors {
+		gap: 80px;
+    }
+	
 }
