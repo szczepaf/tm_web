@@ -162,7 +162,8 @@ footer {
     /* This matches the color of the navigation links */
     font-size: 18px;
     /* This makes the text a bit larger, adjust the value as needed */
-    padding: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
     /* This adds padding around the text */
     line-height: 1.6;
     /* This increases the space between lines/paragraphs, adjust the value as needed */
@@ -178,7 +179,8 @@ footer {
     /* This matches the color of the navigation links */
     font-size: 18px;
     /* This makes the text a bit larger, adjust the value as needed */
-    padding: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
     /* This adds padding around the text */
     line-height: 1.6;
     /* This increases the space between lines/paragraphs, adjust the value as needed */
@@ -326,5 +328,12 @@ footer {
     .sponsors {
         gap: 80px;
     }
+    
+    .practices-text {
+        padding: 100px;
+    }
 
+    .contacts-text {
+        padding: 100px;
+    }
 }
