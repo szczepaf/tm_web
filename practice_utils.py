@@ -1,7 +1,7 @@
 import requests
 import datetime
 import pytz
-
+import logging
 import os
 
 # Assuming you have a UTC datetime object
@@ -51,17 +51,21 @@ def get_trainings():
         "filter": f"startTime>{get_today_str()}~eventTypeId={EVENT_TYPE_ID}",
         "order": "startTime__ASC",
     }
-    response = requests.get(url, params=params)
-    practices = []
-    if response.status_code != 200:
+    try:
+        response = requests.get(url, params=params)
+        practices = []
+        if response.status_code != 200:
+            return practices
+        for practice_json in response.json()["data"]:
+            name = practice_json["caption"]
+            print(practice_json["startTime"])
+            start_time = datetime.datetime.strptime(practice_json["startTime"], '%Y-%m-%dT%H:%M:%S.%fZ')
+            end_time = datetime.datetime.strptime(practice_json["endTime"], '%Y-%m-%dT%H:%M:%S.%fZ')
+            location = practice_json["place"]
+            map_link = practice_json["link"]
+            practice = Practice(name, start_time, end_time, location, map_link)
+            practices.append(practice)
         return practices
-    for practice_json in response.json()["data"]:
-        name = practice_json["caption"]
-        print(practice_json["startTime"])
-        start_time = datetime.datetime.strptime(practice_json["startTime"], '%Y-%m-%dT%H:%M:%S.%fZ')
-        end_time = datetime.datetime.strptime(practice_json["endTime"], '%Y-%m-%dT%H:%M:%S.%fZ')
-        location = practice_json["place"]
-        map_link = practice_json["link"]
-        practice = Practice(name, start_time, end_time, location, map_link)
-        practices.append(practice)
-    return practices
+    except Exception as e:
+        logging.error(e)
+        return []
