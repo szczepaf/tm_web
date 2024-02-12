@@ -291,6 +291,13 @@ footer {
         zoom: 80%;
 
     }
+    .practices-text {
+        padding: 35px;
+    }
+
+    .contacts-text {
+        padding: 35px;
+    }
 
 }
 
