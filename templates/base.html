@@ -15,7 +15,6 @@
 <body>
 	<div class="top-bar">
 	    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='media/main_page/cervene.png') }}" alt="Logo" id="top-bar-logo"></a>
-
 	    <div class="hamburger-menu">
 			<i class="fas fa-bars"></i> <!-- Font Awesome hamburger icon -->
 		</div>
@@ -23,9 +22,9 @@
 		<div class="navigation">
 		    <a href="{{ url_for('index') }}" id="home-link"><img src="{{ url_for('static', filename='media/main_page/cervene.png') }}" alt="Logo" id="navigation-logo"></a>
 			<a href="{{ url_for('practices') }}">Tréninky</a>
-			<a href="{{ url_for('team') }}">O týmu</a>
 			<a href="{{ url_for('ultimate') }}">Ultimate Frisbee</a>
             <a href="{{ url_for('contacts') }}">Kontakt</a>
+			<a href="{{ url_for('team') }}">O týmu</a>
 			<a href="https://www.instagram.com/terrible.monkeys" class="social-icon"><i class="fab fa-instagram"></i></a>
 			<a href="https://www.facebook.com/terriblemonkeys" class="social-icon"><i class="fab fa-facebook-f"></i></a>
 		</div>

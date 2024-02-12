@@ -19,20 +19,22 @@ footer {
 }
 
 .top-bar {
-    display: flex;
+        display: flex;
     align-items: center;
     justify-content: flex-end;
-    height: 12vh;
+    height:16vh;
     background-color: white;
     flex-direction: column;
     text-align: center;
+
 }
 
 .navigation {
     align-items: center;
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 50px;
+
 }
 
 .navigation a {
@@ -136,7 +138,7 @@ footer {
 
 
 #navigation-logo {
-    height: 50px;
+    height: 12vh;
     width: auto;
     /* max-height: 15vh; */
 }
@@ -199,6 +201,22 @@ footer {
 .contacts-text a:hover {
     color: black;
 
+}
+.ultimate {
+    font-size: 70px;
+}
+
+.ultimate-text {
+    background-color: white;
+    color: #832e2d;
+    /* This matches the color of the navigation links */
+    font-size: 18px;
+    /* This makes the text a bit larger, adjust the value as needed */
+    padding-left: 20px;
+    padding-right: 20px;
+    /* This adds padding around the text */
+    line-height: 1.6;
+    /* This increases the space between lines/paragraphs, adjust the value as needed */
 }
 
 /* Small devices (phones, 600px and down) */
@@ -299,11 +317,17 @@ footer {
         padding: 35px;
     }
 
+    .ultimate-text {
+        padding: 35px;
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media only screen and (min-width: 601px) and (max-width: 834px) {
 
+    #top-bar-logo {
+        display: none;
+    }
     .picture-text-group {
         left: 3%;
         top: 25%;
@@ -346,6 +370,9 @@ footer {
     }
 
     .contacts-text {
+        padding: 100px;
+    }
+    .ultimate-text {
         padding: 100px;
     }
 }

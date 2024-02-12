@@ -23,7 +23,7 @@ def team():
 @app.get("/ultimate")
 def ultimate():
     # TODO
-    return "TODO ultimate"
+    return render_template('ultimate.html')
 
 if __name__ == '__main__':
     app.run()
