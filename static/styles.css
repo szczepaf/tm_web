@@ -1,4 +1,4 @@
-body,
+ body,
 html {
     margin: 0;
     padding: 0;
@@ -50,6 +50,11 @@ footer {
 
 .hamburger-menu {
     display: none;
+    cursor: pointer;
+}
+
+.hamburger-menu i {
+    font-size: 25px; /* Adjust this value to make the icon larger */
     cursor: pointer;
 }
 
