@@ -219,6 +219,26 @@ footer {
     /* This increases the space between lines/paragraphs, adjust the value as needed */
 }
 
+
+.contact-icons {
+    display: flex;
+    gap: 30px; /* Spacing between icons */
+    margin-left: 1px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 30px;
+}
+
+.contact-social-icon i {
+    font-size: 40px; /* Larger icons in the contact section */
+    color: #832e2d; /* Match the theme */
+}
+
+.contact-social-icon:hover i {
+    color: black; /* Change color on hover */
+}
+
+
 /* Small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     #top-bar-logo {
