@@ -176,6 +176,14 @@ footer {
     /* This increases the space between lines/paragraphs, adjust the value as needed */
 }
 
+.upcoming-practices a{
+     color: black;
+}
+
+.upcoming-practices a:hover{
+     color: grey;
+}
+
 .contactsh1 {
     font-size: 70px;
 }
@@ -244,16 +252,19 @@ footer {
     #top-bar-logo {
         order: 1;
         /* Position logo on the left */
-        height: 50px; 
+        height: 12vh; 
         width: auto;
         z-index: 11;
         margin-left: 20px;
+        display:flex;
     }
 
 
     .navigation {
+        display:flex;
+
         position: fixed;
-        top: 10%;
+        top: 15vh;
         right: -100%;
         /* Start off-screen */
         height: 100%;
@@ -262,8 +273,10 @@ footer {
         background-color: white;
         flex-direction: column;
         transition: right 0.3s ease;
-        z-index: 3;
+        z-index: 11;
     }
+
+
 
     /* Adjust hamburger menu styles */
     .hamburger-menu {
@@ -275,10 +288,14 @@ footer {
     }
 
     .navigation a {
+         margin-top: -20px;
         font-size: 22px;
         /* Adjust font size for mobile */
     }
 
+    .navigation a:first-child {
+        margin-top: -28vh; /* Adjust this value as needed to move the first link up */
+    }
     .sponsors {
         align-items: center;
 
@@ -315,11 +332,12 @@ footer {
         justify-content: space-between;
         align-items: center;
         padding: 10px;
-        height: 50px;
+        height:16vh;
+         z-index:13;
     }
 
     #navigation-logo {
-        height: 50px;
+        height: 12vh;
         display: none;
     }
 
@@ -343,11 +361,8 @@ footer {
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media only screen and (min-width: 601px) and (max-width: 834px) {
+@media only screen and (min-width: 601px) and (max-width: 835px) {
 
-    #top-bar-logo {
-        display: none;
-    }
     .picture-text-group {
         left: 3%;
         top: 25%;
@@ -363,12 +378,11 @@ footer {
     }
 
     #top-bar-logo {
-        height: 50px;
-        width: auto;
+        display: none;
     }
 
     #navigation-logo {
-        height: 50px;
+        height: 12vh;
         width: auto;
     }
 }
