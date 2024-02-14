@@ -435,6 +435,19 @@ a:hover{
 	.top-bar {
 		height: 14vh;
 	}
+	    .practices-text {
+        padding: 50px;
+    }
+
+    .contacts-text {
+        padding: 50px;
+    }
+    .ultimate-text {
+        padding: 50px;
+    }
+	.team-text{
+		padding: 50px;
+	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
