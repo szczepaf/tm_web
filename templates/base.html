@@ -53,6 +53,12 @@
 
 
 <script>
+window.images = [
+    {% for image in images %}
+        "{{ url_for('static', filename=image_dir + "/" + image) }}",
+    {% endfor %}
+];
+
 document.addEventListener('DOMContentLoaded', function() {
     var currentIndex = 0;
     var container = document.getElementById('randomPictureContainer');

@@ -1,14 +1,6 @@
 {% extends 'base.html' %}
 {% block main %}
 <script>
-window.images = [
-    "{{ url_for('static', filename='media/main_page/cropped_win2.jpg') }}",
-    "{{ url_for('static', filename='media/main_page/rozbeh.jpg') }}",
-    "{{ url_for('static', filename='media/main_page/honza.jpg') }}",
-    "{{ url_for('static', filename='media/main_page/misa.jpg') }}",
-    "{{ url_for('static', filename='media/main_page/hala_mix.jpg') }}",
-    // add more image paths as needed...
-];
 </script>
 <div class="section picture-section" id="randomPictureContainer">
     <!-- Images will be inserted here by JavaScript -->
