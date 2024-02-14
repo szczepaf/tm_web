@@ -56,8 +56,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     var images = [
         "{{ url_for('static', filename='media/main_page/cropped_win2.jpg') }}",
-        "{{ url_for('static', filename='media/main_page/mixed_win.jpg') }}",
-        "{{ url_for('static', filename='media/main_page/women_medaile.jpg') }}",
+		"{{ url_for('static', filename='media/main_page/rozbeh.jpg') }}",
+        "{{ url_for('static', filename='media/main_page/honza.jpg') }}",
+        "{{ url_for('static', filename='media/main_page/misa.jpg') }}",
+		"{{ url_for('static', filename='media/main_page/hala_mix.jpg') }}",
         // add more image paths as needed...
     ];
 
@@ -94,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     updateImage(); // Set the first image
-    setInterval(updateImage, 5000); // Update the image every 5 seconds
+    setInterval(updateImage, 4000); // Update the image every 5 seconds
 	
     var hamburger = document.querySelector('.hamburger-menu');
     var navigation = document.querySelector('.navigation');
