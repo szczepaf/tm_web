@@ -261,6 +261,34 @@ a{
 a:hover{
      color: grey;
 }
+
+
+
+
+
+
+
+.semafor1{
+    background-color: #F2F2F2; /* Grey background */
+    color: black; /* Text color */
+	}
+
+.semafor2{
+    background-color: white; /* Grey background */
+    color: #832e2d; /* Text color */
+	}
+	
+
+.semaforx{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
+
+}
+
+
+
 /* Small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     #top-bar-logo {
@@ -403,6 +431,10 @@ a:hover{
         height: 10vh;
         width: auto;
     }
+	
+	.top-bar {
+		height: 14vh;
+	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -418,16 +450,18 @@ a:hover{
     }
     
     .practices-text {
-        padding: 100px;
+        padding: 50px;
     }
 
     .contacts-text {
-        padding: 100px;
+        padding: 50px;
     }
     .ultimate-text {
-        padding: 100px;
+        padding: 50px;
     }
 	.team-text{
-		padding: 100px;
+		padding: 50px;
 	}
+	
+
 }
