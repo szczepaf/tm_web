@@ -145,7 +145,7 @@ footer {
 
 #randomPictureContainer {
     position: relative;
-    height: 120vh;
+    height: 110vh;
 }
 
 #randomPictureContainer::before {
@@ -444,7 +444,7 @@ a:hover{
     #top-bar-logo {
         display: none;
     }
-
+ 
     .sponsors {
         gap: 80px;
     }
