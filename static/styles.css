@@ -176,13 +176,6 @@ footer {
     /* This increases the space between lines/paragraphs, adjust the value as needed */
 }
 
-.upcoming-practices a{
-     color: black;
-}
-
-.upcoming-practices a:hover{
-     color: grey;
-}
 
 .contactsh1 {
     font-size: 70px;
@@ -247,6 +240,27 @@ footer {
 }
 
 
+.team-text {
+    background-color: white;
+    color: #832e2d;
+    /* This matches the color of the navigation links */
+    font-size: 18px;
+    /* This makes the text a bit larger, adjust the value as needed */
+    padding-left: 20px;
+    padding-right: 20px;
+    /* This adds padding around the text */
+    line-height: 1.6;
+    /* This increases the space between lines/paragraphs, adjust the value as needed */
+}
+
+
+a{
+     color: black;
+}
+
+a:hover{
+     color: grey;
+}
 /* Small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     #top-bar-logo {
@@ -358,6 +372,10 @@ footer {
     .ultimate-text {
         padding: 35px;
     }
+	
+	.team-text{
+		padding: 35px;
+	}
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -409,4 +427,7 @@ footer {
     .ultimate-text {
         padding: 100px;
     }
+	.team-text{
+		padding: 100px;
+	}
 }

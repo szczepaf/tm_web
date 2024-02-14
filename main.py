@@ -17,12 +17,10 @@ def practices():
 
 @app.get("/tym")
 def team():
-    # TODO
-    return "TODO team history"
+    return render_template("team.html")
 
 @app.get("/ultimate")
 def ultimate():
-    # TODO
     return render_template('ultimate.html')
 
 if __name__ == '__main__':
