@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% block main %}
-
+<script>
+window.images = [
+	"{{ url_for('static', filename='media/contacts/anka.jpg') }}",
+	"{{ url_for('static', filename='media/contacts/frana_pull.jpg') }}",
+	"{{ url_for('static', filename='media/contacts/pepa_sky.jpg') }}",
+];
+</script>
 <div class="section picture-section" id="randomPictureContainer">
 	<!-- Images will be inserted here by JavaScript -->
 	<div class="picture-text-group">

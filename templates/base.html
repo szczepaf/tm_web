@@ -53,21 +53,23 @@
 
 
 <script>
+// default images for the page
+// window.images = [
+//     "{{ url_for('static', filename='media/main_page/cropped_win2.jpg') }}",
+//     "{{ url_for('static', filename='media/main_page/rozbeh.jpg') }}",
+//     "{{ url_for('static', filename='media/main_page/honza.jpg') }}",
+//     "{{ url_for('static', filename='media/main_page/misa.jpg') }}",
+//     "{{ url_for('static', filename='media/main_page/hala_mix.jpg') }}",
+//     // add more image paths as needed...
+// ];
+
 document.addEventListener('DOMContentLoaded', function() {
-    var images = [
-        "{{ url_for('static', filename='media/main_page/cropped_win2.jpg') }}",
-		"{{ url_for('static', filename='media/main_page/rozbeh.jpg') }}",
-        "{{ url_for('static', filename='media/main_page/honza.jpg') }}",
-        "{{ url_for('static', filename='media/main_page/misa.jpg') }}",
-		"{{ url_for('static', filename='media/main_page/hala_mix.jpg') }}",
-        // add more image paths as needed...
-    ];
 
     var currentIndex = 0;
     var container = document.getElementById('randomPictureContainer');
     
     // Preload all images and append them to the DOM, but keep them hidden
-    images.forEach(function(imagePath) {
+    window.images.forEach(function(imagePath) {
         var img = document.createElement('img');
         img.className = 'slide';
         img.src = imagePath;
