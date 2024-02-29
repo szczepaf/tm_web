@@ -70,6 +70,10 @@ footer {
     text-align: left;
 }
 
+.white-bold-link {
+    color: white;
+}
+
 
 
 .slide {
@@ -206,6 +210,7 @@ footer {
 .ultimate {
     font-size: 70px;
 }
+
 
 .ultimate-text {
     background-color: white;
@@ -365,7 +370,7 @@ a:hover{
     }
 
     .team-description {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .top-bar {
