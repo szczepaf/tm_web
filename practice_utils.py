@@ -15,12 +15,11 @@ EVENTS_TO_LOAD = 3
 prague_timezone = pytz.timezone('Europe/Prague')
 
 class Practice:
-    def __init__(self, name: str, start_time: datetime.datetime, end_time: datetime.datetime, location: str, map_link: str):
+    def __init__(self, name: str, start_time: datetime.datetime, end_time: datetime.datetime, location: str):
         self.name = name
         self.start_time = start_time.replace(tzinfo=pytz.utc).astimezone(prague_timezone)
         self.end_time = end_time.replace(tzinfo=pytz.utc).astimezone(prague_timezone)
         self.location = location
-        self.map_link = map_link
 
     def get_date(self):
         return self.start_time.strftime("%d. %m.")
@@ -62,7 +61,7 @@ def load_events_from_db(db_username, db_password):
             ORDER BY start_time ASC
         """
 
-        now = datetime.now()
+        now = datetime.datetime.now()
         cursor.execute(query, (now,))
         events = cursor.fetchall()
         return events
@@ -75,20 +74,16 @@ def load_events_from_db(db_username, db_password):
 
 def get_trainings():
     events = load_events_from_db(DB_USERNAME, DB_PW)
-    logging.info(events)
-    #     practices = []
-    #     if response.status_code != 200:
-    #         return practices
-    #     for practice_json in response.json()["data"]:
-    #         name = practice_json["caption"]
-    #         print(practice_json["startTime"])
-    #         start_time = datetime.datetime.strptime(practice_json["startTime"], '%Y-%m-%dT%H:%M:%S.%fZ')
-    #         end_time = datetime.datetime.strptime(practice_json["endTime"], '%Y-%m-%dT%H:%M:%S.%fZ')
-    #         location = practice_json["place"]
-    #         map_link = practice_json["link"]
-    #         practice = Practice(name, start_time, end_time, location, map_link)
-    #         practices.append(practice)
-    #     return practices
-    # except Exception as e:
-    #     logging.error(e)
-    #     return []
+    practices = []
+    for practice_raw in events:
+        name = practice_raw["name"]
+        start_time = practice_raw["start_time"]
+        end_time = practice_raw["end_time"]
+        address = practice_raw["address"]
+        type = practice_raw["type"]
+        if type != "Trénink":
+            continue
+        practice = Practice(name, start_time, end_time, address)
+        practices.append(practice)
+
+    return practices[:EVENTS_TO_LOAD]
