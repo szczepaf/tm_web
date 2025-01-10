@@ -3,14 +3,12 @@ import datetime
 import pytz
 import logging
 import os
+import mysql.connector
+import json
 
-# Assuming you have a UTC datetime object
 
-
-IMPORTER_LOGIN = os.getenv("TYMY_USERNAME")
-IMPORTER_PWD = os.getenv("TYMY_PASSWORD")
-print(IMPORTER_LOGIN)
-print(IMPORTER_PWD)
+DB_USERNAME = os.getenv("DB_USERNAME")
+DB_PW = os.getenv("DB_PASSWORD")
 
 EVENT_TYPE_ID = 1
 EVENTS_TO_LOAD = 3
@@ -23,7 +21,7 @@ class Practice:
         self.end_time = end_time.replace(tzinfo=pytz.utc).astimezone(prague_timezone)
         self.location = location
         self.map_link = map_link
-    
+
     def get_date(self):
         return self.start_time.strftime("%d. %m.")
 
@@ -32,7 +30,7 @@ class Practice:
 
     def get_end(self):
         return self.end_time.strftime("%H:%M")
-    
+
     def __str__(self):
         return f'name: {self.name}, start_time: {self.start_time.strftime("%d. %m. %H:%M")}'
 
@@ -42,30 +40,55 @@ def get_today_str():
     print(formatted)
     return formatted
 
-def get_trainings():
-    url = "https://monkeys.tymy.cz/api/events"
-    params = {
-        "login": IMPORTER_LOGIN,
-        "password": IMPORTER_PWD,
-        "limit": EVENTS_TO_LOAD,
-        "filter": f"startTime>{get_today_str()}~eventTypeId={EVENT_TYPE_ID}",
-        "order": "startTime__ASC",
-    }
+def connect_to_db(db_username, db_password):
     try:
-        response = requests.get(url, params=params)
-        practices = []
-        if response.status_code != 200:
-            return practices
-        for practice_json in response.json()["data"]:
-            name = practice_json["caption"]
-            print(practice_json["startTime"])
-            start_time = datetime.datetime.strptime(practice_json["startTime"], '%Y-%m-%dT%H:%M:%S.%fZ')
-            end_time = datetime.datetime.strptime(practice_json["endTime"], '%Y-%m-%dT%H:%M:%S.%fZ')
-            location = practice_json["place"]
-            map_link = practice_json["link"]
-            practice = Practice(name, start_time, end_time, location, map_link)
-            practices.append(practice)
-        return practices
-    except Exception as e:
-        logging.error(e)
+        connection = mysql.connector.connect(
+            host="localhost",
+            user=db_username,
+            password=db_password,
+            database="attendance"
+        )
+        return connection
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
+
+def load_events_from_db(db_username, db_password):
+    try:
+        connection = connect_to_db(db_username, db_password)
+        cursor = connection.cursor(dictionary=True)
+
+        query = """
+            SELECT * FROM events WHERE end_time > %s and type = "Trénink"
+            ORDER BY start_time ASC
+        """
+
+        now = datetime.now()
+        cursor.execute(query, (now,))
+        events = cursor.fetchall()
+        return events
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
         return []
+    finally:
+        cursor.close()
+        connection.close()
+
+def get_trainings():
+    events = load_events_from_db(DB_USERNAME, DB_PW)
+    logging.info(events)
+    #     practices = []
+    #     if response.status_code != 200:
+    #         return practices
+    #     for practice_json in response.json()["data"]:
+    #         name = practice_json["caption"]
+    #         print(practice_json["startTime"])
+    #         start_time = datetime.datetime.strptime(practice_json["startTime"], '%Y-%m-%dT%H:%M:%S.%fZ')
+    #         end_time = datetime.datetime.strptime(practice_json["endTime"], '%Y-%m-%dT%H:%M:%S.%fZ')
+    #         location = practice_json["place"]
+    #         map_link = practice_json["link"]
+    #         practice = Practice(name, start_time, end_time, location, map_link)
+    #         practices.append(practice)
+    #     return practices
+    # except Exception as e:
+    #     logging.error(e)
+    #     return []
