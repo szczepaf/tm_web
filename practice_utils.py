@@ -17,8 +17,8 @@ prague_timezone = pytz.timezone('Europe/Prague')
 class Practice:
     def __init__(self, name: str, start_time: datetime.datetime, end_time: datetime.datetime, location: str):
         self.name = name
-        self.start_time = start_time.replace(tzinfo=pytz.utc).astimezone(prague_timezone)
-        self.end_time = end_time.replace(tzinfo=pytz.utc).astimezone(prague_timezone)
+        self.start_time = start_time
+        self.end_time = end_time
         self.location = location
 
     def get_date(self):
