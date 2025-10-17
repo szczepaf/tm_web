@@ -25,8 +25,7 @@ def contacts():
 def practices():
     image_dir = "media/practices"
     images = os.listdir(os.path.join(app.static_folder, image_dir))
-    # practices = practice_utils.get_trainings()
-    practices=[]
+    practices = practice_utils.get_trainings()
     return render_template('treninky.html', practices=practices, images=images, image_dir=image_dir)
 
 @app.get("/tym")
