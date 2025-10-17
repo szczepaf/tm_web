@@ -291,6 +291,10 @@ a:hover{
 	padding-right: 50px;
 
 }
+.trejn-description{
+	background-color: #F2F2F2;
+	color: black;
+}
 
 
 
@@ -395,7 +399,8 @@ a:hover{
 
     }
     .practices-text {
-        padding: 35px;
+        padding: 15px;
+        font-size: 15px;
     }
 
     .contacts-text {
